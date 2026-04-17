@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+add      in this code  bank name   <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -16,14 +16,12 @@ body {
     margin: 0;
 }
 
-h1 {
-    margin: 15px;
-}
+h1 { margin: 15px; }
 
 .subtitle {
-    margin-bottom: 20px;
     font-size: 14px;
     color: #ccc;
+    margin-bottom: 20px;
 }
 
 .container {
@@ -42,9 +40,7 @@ h1 {
     transition: 0.3s;
 }
 
-.card:hover {
-    transform: scale(1.1);
-}
+.card:hover { transform: scale(1.1); }
 
 .icon {
     font-size: 40px;
@@ -60,10 +56,8 @@ h1 {
 .modal {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: rgba(0,0,0,0.7);
 }
 
@@ -72,24 +66,39 @@ h1 {
     padding: 25px;
     border-radius: 15px;
     width: 320px;
-    margin: 10% auto;
-    text-align: center;
+    margin: 5% auto;
+    text-align: left;
 }
 
 .close {
     float: right;
     cursor: pointer;
     font-size: 20px;
+    color: white;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    border: none;
 }
 
 button {
-    margin-top: 15px;
-    padding: 10px 20px;
+    width: 100%;
+    padding: 10px;
     border: none;
     background: #00b894;
     color: white;
     border-radius: 10px;
     cursor: pointer;
+    font-size: 16px;
+}
+
+label {
+    font-size: 14px;
 }
 </style>
 </head>
@@ -123,30 +132,42 @@ button {
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal Form -->
 <div id="paymentModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
-        <h2 id="methodName"></h2>
+
+        <h3 id="methodName"></h3>
         <p><strong>Journal of Number Theory</strong></p>
-        <p>Manuscript Article Processing Charges (APC)</p>
-        <p>Kindly pay <strong>500 USD</strong></p>
-        <button onclick="proceed()">Proceed to Pay</button>
+        <p>APC Payment - <strong>500 USD</strong></p>
+        <label>Bank Name</label>
+        <input type="text" placeholder="Enter bank name">
+
+        <label>Account Number</label>
+        <input type="text" placeholder="Enter account number">
+
+        <label>Account Name</label>
+        <input type="text" placeholder="Enter account holder name">
+
+        <label>Additional Details</label>
+        <textarea rows="3" placeholder="Enter any extra info"></textarea>
+
+        <button onclick="payNow()">Pay Now</button>
     </div>
 </div>
 
 <script>
 function openModal(method) {
     document.getElementById("paymentModal").style.display = "block";
-    document.getElementById("methodName").innerText = method;
+    document.getElementById("methodName").innerText = method + " Payment";
 }
 
 function closeModal() {
     document.getElementById("paymentModal").style.display = "none";
 }
 
-function proceed() {
-    alert("Redirecting to secure payment...");
+function payNow() {
+    alert("Payment submitted successfully!");
 }
 </script>
 
