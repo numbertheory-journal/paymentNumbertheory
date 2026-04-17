@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APC Payment</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #141e30, #243b55);
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+h1 {
+    margin: 15px;
+}
+
+.subtitle {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background: #1e1e1e;
+    padding: 20px;
+    width: 180px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.paypal { color: #009cde; }
+.stripe { color: #6772e5; }
+.payoneer { color: #ff4800; }
+.wise { color: #00b9ff; }
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+}
+
+.modal-content {
+    background: #222;
+    padding: 25px;
+    border-radius: 15px;
+    width: 320px;
+    margin: 10% auto;
+    text-align: center;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background: #00b894;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h1>📄 Journal of Number Theory</h1>
+<div class="subtitle">Manuscript APC Payment Portal</div>
+
+<h2>Select Payment Method</h2>
+
+<div class="container">
+    <div class="card" onclick="openModal('PayPal')">
+        <div class="icon paypal"><i class="fab fa-paypal"></i></div>
+        <h3>PayPal</h3>
+    </div>
+
+    <div class="card" onclick="openModal('Stripe')">
+        <div class="icon stripe"><i class="fas fa-credit-card"></i></div>
+        <h3>Stripe</h3>
+    </div>
+
+    <div class="card" onclick="openModal('Payoneer')">
+        <div class="icon payoneer"><i class="fas fa-wallet"></i></div>
+        <h3>Payoneer</h3>
+    </div>
+
+    <div class="card" onclick="openModal('Wise')">
+        <div class="icon wise"><i class="fas fa-money-bill-wave"></i></div>
+        <h3>Wise</h3>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="paymentModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="methodName"></h2>
+        <p><strong>Journal of Number Theory</strong></p>
+        <p>Manuscript Article Processing Charges (APC)</p>
+        <p>Kindly pay <strong>500 USD</strong></p>
+        <button onclick="proceed()">Proceed to Pay</button>
+    </div>
+</div>
+
+<script>
+function openModal(method) {
+    document.getElementById("paymentModal").style.display = "block";
+    document.getElementById("methodName").innerText = method;
+}
+
+function closeModal() {
+    document.getElementById("paymentModal").style.display = "none";
+}
+
+function proceed() {
+    alert("Redirecting to secure payment...");
+}
+</script>
+
+</body>
+</html>
